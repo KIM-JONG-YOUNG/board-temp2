@@ -12,6 +12,11 @@ spring:
       jdbc-url: jdbc:mariadb://localhost:3306/board
       username: root
       password: root
+  sql:
+    init:
+      mode: always
+      schema-locations:
+      - classpath:schema-member.sql
 
 eureka:
   instance:
