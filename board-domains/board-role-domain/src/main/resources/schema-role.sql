@@ -23,14 +23,6 @@ create table if not exists tb_role_authority (
     primary key (authority_no, role_no)
 );
 
-create table if not exists tb_role_member (
-    role_no bigint not null,
-   	member_no bigint not null,
-    created_date_time datetime(6),
-    updated_date_time datetime(6),
-    state integer,
-    primary key (member_no, role_no)
-);
 
 alter table tb_role 
    	add if not exists constraint UK_role_name 
@@ -47,17 +39,3 @@ alter table tb_role_authority
    	foreign key (authority_no) 
 		references tb_authority (authority_no)
    	on delete cascade;
-
-alter table tb_role_member 
-	add if not exists constraint FK_tb_role_member_tb_role_role_no
-   	foreign key (role_no) 
-		references tb_role (role_no)
-   	on delete cascade;
-
-alter table tb_role_member 
-   	add if not exists constraint FK_tb_role_member_tb_member_member_no 
-   	foreign key (member_no) 
-      	references tb_member (member_no)
-   	on delete cascade;
-
-   

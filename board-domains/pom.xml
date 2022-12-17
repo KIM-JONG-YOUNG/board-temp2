@@ -16,6 +16,7 @@
 		<module>board-member-domain</module>
 		<module>board-role-domain</module>
 		<module>board-post-domain</module>
+		<module>board-member-role-domain</module>
 	</modules>
 
 	<dependencies>

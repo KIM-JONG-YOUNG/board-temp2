@@ -3,7 +3,6 @@ spring:
     init:
       mode: always
       schema-locations:
-      - classpath:schema-member.sql
       - classpath:schema-role.sql
   datasource:
     hikari:
