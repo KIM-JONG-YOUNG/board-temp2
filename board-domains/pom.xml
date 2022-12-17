@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>board-domain-core</module>
+		<module>board-member-domain</module>
 	</modules>
 
 	<dependencies>

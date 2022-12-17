@@ -80,6 +80,12 @@
 				<artifactId>board-common</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
+			<!-- 게시판 Domain Core -->
+			<dependency>
+				<groupId>edu.jong</groupId>
+				<artifactId>board-domain-core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

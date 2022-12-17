@@ -14,7 +14,15 @@ public interface CodeEnum<V> {
 		ACTIVE(1), DEACTIVE(0);
 
 		private final Integer code;
+	}
+
+	@Getter
+	@RequiredArgsConstructor
+	public static enum Gender implements CodeEnum<Character> {
+
+		MAIL('M'), FEMAIL('F');
 		
+		private final Character code;
 	}
 	
 }
