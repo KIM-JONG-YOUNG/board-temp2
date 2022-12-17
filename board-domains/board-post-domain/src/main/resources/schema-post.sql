@@ -9,9 +9,3 @@ create table tb_post (
     state integer,
     primary key (post_no)
 );
-
-alter table tb_post 
-   	add constraint FK_tb_post_tb_member_member_no
-   	foreign key (post_writer_no) 
-   		references tb_member (member_no) 
-   	on delete cascade;

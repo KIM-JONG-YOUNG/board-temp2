@@ -16,11 +16,6 @@
 			<groupId>edu.jong</groupId>
 			<artifactId>board-domain-core</artifactId>
 		</dependency>
-		<!-- 게시판 사용자 도메인 -->
-		<dependency>
-			<groupId>edu.jong</groupId>
-			<artifactId>board-member-domain</artifactId>
-		</dependency>
 	</dependencies>
 
 </project>
