@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import edu.jong.board.client.response.PagingList;
 import edu.jong.board.common.CodeEnum.State;
 import edu.jong.board.member.request.MemberAddParam;
 import edu.jong.board.member.request.MemberModifyParam;
 import edu.jong.board.member.request.MemberPasswordModifyParam;
 import edu.jong.board.member.request.MemberSearchCond;
+import edu.jong.board.member.response.MemberDTO;
 
 @FeignClient("member-service")
 public interface MemberOperation {
@@ -46,15 +48,15 @@ public interface MemberOperation {
 			@RequestBody State state);
 
 	@GetMapping(value = "/members/{memberNo}")
-	ResponseEntity<Void> getMember(
+	ResponseEntity<MemberDTO> getMember(
 			@PathVariable long memberNo);
 
 	@GetMapping(value = "/members/username/{username}")
-	ResponseEntity<Void> getMember(
+	ResponseEntity<MemberDTO> getMember(
 			@PathVariable String username);
 
 	@GetMapping(value = "/members/search")
-	ResponseEntity<Void> searchMemberList(
+	ResponseEntity<PagingList<MemberDTO>> searchMemberList(
 			MemberSearchCond cond);
 
 }
