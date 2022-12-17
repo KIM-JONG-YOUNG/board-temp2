@@ -6,9 +6,15 @@ spring:
     name: config-server
   profiles: 
     active: 
-    - native
+#    - native
+    - git
   cloud:
     config:
       server:
         native:
           search-locations:  file:../board-configs
+        git: 
+          uri: https://github.com/KIM-JONG-YOUNG/board
+          search-paths: board-configs     # Folder 명
+          default-label: master           # Branch 정보
+          delete-untracked-branches: true # Remote Repository만 사용
