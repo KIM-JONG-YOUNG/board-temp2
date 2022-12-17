@@ -11,7 +11,8 @@ create table if not exists tb_authority (
 create table if not exists tb_role (
    	role_no bigint not null auto_increment,
     role_name varchar(255) not null,
-    primary key (role_no)
+    primary key (role_no),
+    unique (role_name)
 );
 
 create table if not exists tb_role_authority (
@@ -22,11 +23,6 @@ create table if not exists tb_role_authority (
     state integer,
     primary key (authority_no, role_no)
 );
-
-
-alter table tb_role 
-   	add if not exists constraint UK_role_name 
-		unique (role_name);
 
 alter table tb_role_authority 
    add if not exists constraint FK_tb_role_authority_tb_role_role_no 
