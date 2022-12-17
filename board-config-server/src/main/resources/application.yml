@@ -8,7 +8,6 @@ spring:
     active: 
 #    - native
     - git
-    - eureka
   cloud:
     config:
       server:
@@ -19,3 +18,12 @@ spring:
           search-paths: board-configs     # Folder 명
           default-label: master           # Branch 정보
           delete-untracked-branches: true # Remote Repository만 사용
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
