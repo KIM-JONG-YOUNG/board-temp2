@@ -19,11 +19,13 @@
 		<module>board-config-server</module>
 		<module>board-domains</module>
 		<module>board-common</module>
+		<module>board-clients</module>
 	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
+		<openapi.ui.version>1.6.11</openapi.ui.version>
 	</properties>
 
 	<dependencies>
@@ -73,6 +75,12 @@
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<!-- Spring Open API UI -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${openapi.ui.version}</version>
 			</dependency>
 			<!-- 공통 상수 및 타입 -->
 			<dependency>
