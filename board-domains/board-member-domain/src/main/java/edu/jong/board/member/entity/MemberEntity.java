@@ -14,6 +14,7 @@ import edu.jong.board.common.CodeEnum.Gender;
 import edu.jong.board.domain.converter.AbstractAttributeConverter;
 import edu.jong.board.domain.entity.BaseEntity;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -64,6 +65,17 @@ public class MemberEntity extends BaseEntity {
 		public GenderAttributeConverter() {
 			super(Gender.class, false);
 		}
+	}
+
+	@Builder
+	public MemberEntity(long no, String username, String password, String name, Gender gender, String email) {
+		super();
+		this.no = no;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.gender = gender;
+		this.email = email;
 	}
 	
 }
