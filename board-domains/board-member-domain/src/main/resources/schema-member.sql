@@ -12,5 +12,5 @@ create table if not exists tb_member (
 );
 
 alter table tb_member 
-   add if not exists constraint UK_member_username 
-      unique (member_username);
+   	add if not exists constraint UK_member_username 
+      	unique (member_username);
