@@ -11,5 +11,6 @@ public final class BoardConstants {
 		public static final String TB_AUTH = "tb_authority";
 		public static final String TB_ROLE_AUTH = "tb_role_authority";
 		public static final String TB_ROLE_MEMBER = "tb_role_member";
+		public static final String TB_POST = "tb_post";
 	}
 }
