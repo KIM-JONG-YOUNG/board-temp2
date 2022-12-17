@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>board-client-core</module>
+		<module>board-member-client</module>
 	</modules>
 
 	<dependencies>

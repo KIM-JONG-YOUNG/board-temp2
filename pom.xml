@@ -94,6 +94,12 @@
 				<artifactId>board-domain-core</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
+			<!-- 게시판 Micro Service Client Core -->
+			<dependency>
+				<groupId>edu.jong</groupId>
+				<artifactId>board-client-core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
 			<!-- 게시판 사용자 도메인 -->
 			<dependency>
 				<groupId>edu.jong</groupId>
