@@ -1,0 +1,41 @@
+springdoc:
+#  title: API Document
+#  version: 1.0.0
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
+  cache:
+    disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  
+eureka:
+#  instance:
+#    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+
+management:
+  endpoint:
+    health:
+      enabled: true
+    info:
+      enabled: true
+    refresh:
+      enabled: true
+    restart:
+      enabled: true
+    beans:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
+        - info
+        - refresh
+        - restart
+        - beans
