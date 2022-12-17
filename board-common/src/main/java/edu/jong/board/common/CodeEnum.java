@@ -24,5 +24,23 @@ public interface CodeEnum<V> {
 		
 		private final Character code;
 	}
-	
+
+	public static enum RoleName implements CodeEnum<String> {
+
+		SUPER_ADMIN, ADMIN, USER;
+
+		@Override
+		public String getCode() {
+			return this.name();
+		}
+	}
+
+	@Getter
+	@RequiredArgsConstructor
+	public static enum Method implements CodeEnum<String> {
+
+		ALL("ALL"), GET("GET"), POST("POS"), PUT("PUT"), DELETE("DEL") ;
+		
+		private final String code;
+	}
 }
