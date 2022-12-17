@@ -16,6 +16,7 @@
 
 	<modules>
 		<module>board-discovery-server</module>
+		<module>board-config-server</module>
 	</modules>
 
 	<properties>
