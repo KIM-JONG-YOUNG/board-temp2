@@ -17,6 +17,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
@@ -37,23 +38,27 @@ public class MemberEntity extends BaseEntity {
 			unique = true,
 			nullable = false)
 	private String username;
-	
+
+	@Setter
 	@Column(name = "member_password",
 			length = 60,
 			nullable = false)
 	private String password;
 	
+	@Setter
 	@Column(name = "member_name",
 			length = 30,
 			nullable = false)
 	private String name;
 	
+	@Setter
 	@Convert(converter = GenderAttributeConverter.class)
 	@Column(name = "member_gender",
 			length = 1,
 			nullable = false)
 	private Gender gender;
 	
+	@Setter
 	@Column(name = "member_email",
 			length = 60,
 			nullable = false)
