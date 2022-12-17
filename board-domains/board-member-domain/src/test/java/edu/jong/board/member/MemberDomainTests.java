@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootTest
 @ActiveProfiles("h2")
 @SpringBootApplication(scanBasePackages = BoardConstants.ROOT_PACKAGE)
-public class MemberEntityTests {
+public class MemberDomainTests {
 
 	@Test
 	void contextLoads() {

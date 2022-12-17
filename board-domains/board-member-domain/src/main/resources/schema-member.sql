@@ -8,6 +8,9 @@ create table if not exists tb_member (
     created_date_time datetime(6),
     updated_date_time datetime(6),
     state integer,
-    primary key (member_no),
-    unique (member_username)
+    primary key (member_no)
 );
+
+alter table tb_member 
+   add if not exists constraint UK_member_username 
+      unique (member_username);
