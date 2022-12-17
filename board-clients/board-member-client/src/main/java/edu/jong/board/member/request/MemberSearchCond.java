@@ -1,9 +1,16 @@
 package edu.jong.board.member.request;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import edu.jong.board.client.request.PagingParam;
+import edu.jong.board.common.BoardConstants;
 import edu.jong.board.common.CodeEnum.Gender;
+import edu.jong.board.common.SortEnums.MemberSortBy;
+import edu.jong.board.common.SortEnums.OrderBy;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,5 +38,14 @@ public class MemberSearchCond extends PagingParam {
 	@Size(max = 60)
 	private String email;
 	
+	@JsonFormat(pattern = BoardConstants.DATE_FORMAT)
+	private LocalDate from;
+	
+	@JsonFormat(pattern = BoardConstants.DATE_FORMAT)
+	private LocalDate to;
+	
+	private OrderBy orderBy;
+	
+	private MemberSortBy sortBy;
 	
 }

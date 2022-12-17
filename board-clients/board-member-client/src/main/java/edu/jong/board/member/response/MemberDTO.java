@@ -3,6 +3,9 @@ package edu.jong.board.member.response;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import edu.jong.board.common.BoardConstants;
 import edu.jong.board.common.CodeEnum.Gender;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -32,8 +35,10 @@ public class MemberDTO implements Serializable {
 	
 	private String email;
 	
+	@JsonFormat(pattern = BoardConstants.DATE_TIME_FORMAT)
 	private LocalDateTime createdDateTime;
 
+	@JsonFormat(pattern = BoardConstants.DATE_TIME_FORMAT)
 	private LocalDateTime updatedDateTime;
 	
 }

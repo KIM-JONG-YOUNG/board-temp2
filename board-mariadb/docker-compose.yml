@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  board_mariadb:
+  member_db:
     image: mariadb:latest
-    hostname: board_mariadb
-    container_name: board_mariadb
+    hostname: member_db
+    container_name: member_db
     environment:
       - TZ=Asia/Seoul
       - MYSQL_ROOT_PASSWORD=root
@@ -13,7 +13,7 @@ services:
       - 3306:3306
     volumes:
       - ./conf:/etc/mysql/conf.d
-      - ./data:/var/lib/mysql
+      - ./member_db:/var/lib/mysql
 
 networks:
   default:

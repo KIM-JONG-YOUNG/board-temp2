@@ -20,10 +20,12 @@
 		<module>board-domains</module>
 		<module>board-common</module>
 		<module>board-clients</module>
+		<module>board-services</module>
 	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<mapstruct.version>1.5.2.Final</mapstruct.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 		<openapi.ui.version>1.6.11</openapi.ui.version>
 	</properties>
@@ -82,6 +84,13 @@
 				<artifactId>springdoc-openapi-ui</artifactId>
 				<version>${openapi.ui.version}</version>
 			</dependency>
+			<!-- Mapstruct -->
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct</artifactId>
+				<version>${mapstruct.version}</version>
+			</dependency>
+
 			<!-- 공통 상수 및 타입 -->
 			<dependency>
 				<groupId>edu.jong</groupId>
@@ -104,6 +113,12 @@
 			<dependency>
 				<groupId>edu.jong</groupId>
 				<artifactId>board-member-domain</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<!-- 게시판 사용자 API 클라이언트 -->
+			<dependency>
+				<groupId>edu.jong</groupId>
+				<artifactId>board-member-client</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 		</dependencies>

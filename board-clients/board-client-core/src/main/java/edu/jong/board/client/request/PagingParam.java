@@ -28,4 +28,8 @@ public abstract class PagingParam implements Serializable {
 	@Builder.Default
 	private long pageGroupSize = 10;
 
+	public long offset() {
+		long offset = (this.page - 1) * pageRows;
+		return (offset >= 0) ? offset : 0;
+	}
 }

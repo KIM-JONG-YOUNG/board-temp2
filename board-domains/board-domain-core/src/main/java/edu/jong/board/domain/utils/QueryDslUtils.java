@@ -1,6 +1,8 @@
 package edu.jong.board.domain.utils;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,6 +21,11 @@ public final class QueryDslUtils {
 		return (StringUtils.isBlank(value)) ? null : path.contains(value);
 	}
 
+	public static BooleanExpression betweenIfPresent(DateTimePath<LocalDateTime> path, LocalDate from, LocalDate to) {
+		return betweenIfPresent(path, 
+				LocalDateTime.of(from, LocalTime.of(0, 0, 0)), 
+				LocalDateTime.of(to, LocalTime.of(23, 59, 59)));
+	}
 	public static BooleanExpression betweenIfPresent(DateTimePath<LocalDateTime> path, LocalDateTime from, LocalDateTime to) {
 
 		if (from != null && to != null) {

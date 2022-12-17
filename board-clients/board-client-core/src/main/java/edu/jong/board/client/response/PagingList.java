@@ -35,8 +35,7 @@ public class PagingList<E> implements Serializable {
 	
 	private long pageGroupEnd;
 
-	@Builder
-	public PagingList(List<E> list, PagingParam pagingParam, long totalCount) {
+	public PagingList(PagingParam pagingParam, List<E> list, long totalCount) {
 		super();
 		
 		this.list = list;

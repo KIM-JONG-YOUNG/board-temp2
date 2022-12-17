@@ -7,46 +7,46 @@
 		<artifactId>board</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>board-domains</artifactId>
+	<artifactId>board-services</artifactId>
 	<packaging>pom</packaging>
-	<description>게시판 Domain 목록</description>
+	<description>게시판 Micro Service 목록</description>
 
 	<modules>
-		<module>board-domain-core</module>
-		<module>board-member-domain</module>
-		<module>board-role-domain</module>
-		<module>board-post-domain</module>
-		<module>board-member-role-domain</module>
+		<module>board-member-service</module>
 	</modules>
 
 	<dependencies>
-		<!-- H2 DB -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- MariaDB -->
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- Spring JPA -->
+		<!-- Spring Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- QueryDSL -->
+		<!-- Spring Actuator -->
 		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- Spring Config Client -->
 		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		<!-- 공통 상수 및 타입 -->
+		<!-- Spring Eureka Discovery Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- Spring Feign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- Mapstruct -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+		</dependency>
+		<!-- 공통 상수 -->
 		<dependency>
 			<groupId>edu.jong</groupId>
 			<artifactId>board-common</artifactId>
@@ -64,18 +64,18 @@
 					<encoding>UTF-8</encoding>
 					<annotationProcessors>
 						<annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</annotationProcessor>
-						<annotationProcessor>com.querydsl.apt.jpa.JPAAnnotationProcessor</annotationProcessor>
+						<annotationProcessor>org.mapstruct.ap.MappingProcessor</annotationProcessor>
 					</annotationProcessors>
 					<annotationProcessorPaths>
-						<path>
-							<groupId>com.querydsl</groupId>
-							<artifactId>querydsl-apt</artifactId>
-							<version>${querydsl.version}</version>
-						</path>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
 						</path>
 						<path>
 							<groupId>javax.annotation</groupId>

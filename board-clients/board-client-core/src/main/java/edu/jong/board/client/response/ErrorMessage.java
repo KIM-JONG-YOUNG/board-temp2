@@ -2,6 +2,9 @@ package edu.jong.board.client.response;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import edu.jong.board.common.BoardConstants;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +22,7 @@ public class ErrorMessage {
 
 	private String message;
 
+	@JsonFormat(pattern = BoardConstants.DATE_TIME_FORMAT)
 	private LocalDateTime timestamp;
 
 	@Builder
