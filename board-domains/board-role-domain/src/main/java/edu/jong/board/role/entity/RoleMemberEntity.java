@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import edu.jong.board.common.BoardConstants.TableNames;
 import edu.jong.board.domain.entity.BaseEntity;
 import edu.jong.board.member.entity.MemberEntity;
@@ -44,11 +47,13 @@ public class RoleMemberEntity extends BaseEntity {
 	@Id @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_no",
 				nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private RoleEntity role;
 
 	@Id @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_no",
 				nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private MemberEntity member;
 
 	@Builder
