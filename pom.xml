@@ -14,10 +14,15 @@
 	<packaging>pom</packaging>
 	<description>Spring Boot MSA Multi Module 게시판</description>
 
+	<modules>
+		<module>board-discovery-server</module>
+	</modules>
+
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
 	</properties>
-	
+
 	<dependencies>
 		<!-- Spring Boot Starter -->
 		<dependency>
@@ -50,5 +55,17 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
