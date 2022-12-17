@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  board_mariadb:
+    image: mariadb:latest
+    hostname: board_mariadb
+    container_name: board_mariadb
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=board
+    ports:
+      - 3306:3306
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+
+networks:
+  default:
+    name: board_mariadb_net
+    external: true
