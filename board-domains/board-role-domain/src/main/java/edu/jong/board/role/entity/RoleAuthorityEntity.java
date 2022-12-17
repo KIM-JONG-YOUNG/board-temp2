@@ -32,6 +32,7 @@ import lombok.ToString;
 public class RoleAuthorityEntity extends BaseEntity {
 
 	@Getter
+	@Builder
 	@ToString
 	@EqualsAndHashCode
 	@NoArgsConstructor(access = AccessLevel.PROTECTED)

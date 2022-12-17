@@ -33,6 +33,7 @@ import lombok.ToString;
 public class RoleMemberEntity extends BaseEntity {
 
 	@Getter
+	@Builder
 	@ToString
 	@EqualsAndHashCode
 	@NoArgsConstructor(access = AccessLevel.PROTECTED)
