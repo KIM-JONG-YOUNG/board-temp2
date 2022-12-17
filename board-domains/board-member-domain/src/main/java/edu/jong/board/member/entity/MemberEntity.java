@@ -73,9 +73,8 @@ public class MemberEntity extends BaseEntity {
 	}
 
 	@Builder
-	public MemberEntity(long no, String username, String password, String name, Gender gender, String email) {
+	public MemberEntity(String username, String password, String name, Gender gender, String email) {
 		super();
-		this.no = no;
 		this.username = username;
 		this.password = password;
 		this.name = name;
