@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import edu.jong.board.common.CodeEnum.Gender;
-import edu.jong.board.common.CodeEnum.State;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,6 +36,4 @@ public class MemberDTO implements Serializable {
 
 	private LocalDateTime updatedDateTime;
 	
-	private State state;
-
 }
