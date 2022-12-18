@@ -17,7 +17,9 @@ spring:
       mode: always
       schema-locations:
       - classpath:schema-member.sql
+      - classpath:data-member.sql
 
 eureka:
   instance:
-    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+    

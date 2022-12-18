@@ -116,7 +116,7 @@ public class MemberServiceImpl implements MemberService {
 		if (member.getState() == State.DEACTIVE)
 			throw new DataStateDeactiveException("비활성화된 사용자입니다.");
 
-		if (encoder.matches(param.getCurPassword(), member.getPassword()))
+		if (!encoder.matches(param.getCurPassword(), member.getPassword()))
 			throw new PasswordNotMatchException("비밀번호가 일치하지 않습니다.");
 		
 		memberRepository.save(memberDomainMapper.updateEntity(param, encoder, member));
