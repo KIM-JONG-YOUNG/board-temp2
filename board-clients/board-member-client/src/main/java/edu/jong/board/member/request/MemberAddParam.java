@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import edu.jong.board.common.CodeEnum.Gender;
+import edu.jong.board.common.CodeEnum.MemberGroup;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,4 +44,7 @@ public class MemberAddParam implements Serializable {
 	@Size(max = 60)
 	private String email;
 	
+	@NotNull
+	private MemberGroup group;
+
 }

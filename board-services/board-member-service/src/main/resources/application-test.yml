@@ -1,15 +1,10 @@
 spring:
-  sql:
-    init:
-      mode: always
-      data-locations:
-      - classpath:data-member.sql
-
   cloud:
     config:
       enabled: false  
     discovery:
       enabled: false  
+
 management:
   endpoints:
     enabled-by-default: false

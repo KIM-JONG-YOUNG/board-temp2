@@ -3,10 +3,18 @@ package edu.jong.board.member.controller;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.jong.board.client.exception.DataAlreadyExistsException;
+import edu.jong.board.client.exception.DataNotFoundException;
+import edu.jong.board.client.exception.DataStateDeactiveException;
+import edu.jong.board.client.response.ErrorMessage;
 import edu.jong.board.client.response.PagingList;
+import edu.jong.board.client.response.ErrorMessage.ErrorMessageBuilder;
 import edu.jong.board.common.CodeEnum.State;
+import edu.jong.board.member.exception.PasswordNotMatchException;
+import edu.jong.board.member.exception.SuperAdminMemberSaveException;
 import edu.jong.board.member.operation.MemberOperation;
 import edu.jong.board.member.request.MemberAddParam;
 import edu.jong.board.member.request.MemberModifyParam;
@@ -70,4 +78,15 @@ public class MemberController implements MemberOperation {
 						memberService.countMemberList(cond)));
 	}
 
+	@ExceptionHandler({
+		PasswordNotMatchException.class,
+		SuperAdminMemberSaveException.class
+	})
+	ResponseEntity<ErrorMessage> handleCutomException(Exception e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+				.body(ErrorMessage.builder()
+						.errorClass(e.getClass())
+						.message(e.getMessage())
+						.build());
+	}
 }

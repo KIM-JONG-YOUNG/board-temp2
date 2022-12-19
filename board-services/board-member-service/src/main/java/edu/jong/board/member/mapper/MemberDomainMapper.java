@@ -25,6 +25,7 @@ public interface MemberDomainMapper {
 	@Mapping(target = "name", source = "param.name")
 	@Mapping(target = "gender", source = "param.gender")
 	@Mapping(target = "email", source = "param.email")
+	@Mapping(target = "group", source = "param.group")
 	MemberEntity toEntity(MemberAddParam param, PasswordEncoder encoder);
 	
 	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

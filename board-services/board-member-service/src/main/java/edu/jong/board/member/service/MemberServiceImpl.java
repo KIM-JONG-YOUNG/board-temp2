@@ -13,18 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.core.types.dsl.ComparableExpressionBase;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 import edu.jong.board.client.exception.DataAlreadyExistsException;
 import edu.jong.board.client.exception.DataNotFoundException;
 import edu.jong.board.client.exception.DataStateDeactiveException;
+import edu.jong.board.common.CodeEnum.MemberGroup;
 import edu.jong.board.common.CodeEnum.State;
 import edu.jong.board.common.SortEnums.OrderBy;
 import edu.jong.board.domain.utils.QueryDslUtils;
 import edu.jong.board.member.entity.MemberEntity;
 import edu.jong.board.member.entity.QMemberEntity;
 import edu.jong.board.member.exception.PasswordNotMatchException;
+import edu.jong.board.member.exception.SuperAdminMemberSaveException;
 import edu.jong.board.member.mapper.MemberDomainMapper;
 import edu.jong.board.member.repository.MemberRepository;
 import edu.jong.board.member.request.MemberAddParam;
@@ -51,6 +52,7 @@ public class MemberServiceImpl implements MemberService {
 				QueryDslUtils.containsIfPresent(TB_MEMBER.name, cond.getName()),
 				QueryDslUtils.equalsIfPresent(TB_MEMBER.gender, cond.getGender()),
 				QueryDslUtils.containsIfPresent(TB_MEMBER.email, cond.getEmail()),
+				QueryDslUtils.equalsIfPresent(TB_MEMBER.group, cond.getGroup()),
 				QueryDslUtils.betweenIfPresent(TB_MEMBER.createdDateTime, cond.getFrom(), cond.getTo())
 		};
 	}
@@ -70,6 +72,8 @@ public class MemberServiceImpl implements MemberService {
 			return new OrderSpecifier<>(orderBy, TB_MEMBER.gender);
 		case EMAIL:
 			return new OrderSpecifier<>(orderBy, TB_MEMBER.email);
+		case GROUP:
+			return new OrderSpecifier<>(orderBy, TB_MEMBER.group);
 		case CREATE_DATE_TIME:
 			return new OrderSpecifier<>(orderBy, TB_MEMBER.createdDateTime);
 		case UPDATE_DATE_TIME:
@@ -82,6 +86,9 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional
 	@Override
 	public long addMember(@Valid MemberAddParam param) {
+		
+		if (param.getGroup() == MemberGroup.SUPER_ADMIN)
+			throw new SuperAdminMemberSaveException("'SUPER_ADMIN' 그룹의 계정은 추가할 수 없습니다.");
 		
 		if (memberRepository.existsByUsername(param.getUsername()))
 			throw new DataAlreadyExistsException("동일한 계정의 사용자가 존재합니다.");
@@ -100,7 +107,10 @@ public class MemberServiceImpl implements MemberService {
 		
 		if (member.getState() == State.DEACTIVE)
 			throw new DataStateDeactiveException("비활성화된 사용자입니다.");
-		
+
+		if (param.getGroup() == MemberGroup.SUPER_ADMIN)
+			throw new SuperAdminMemberSaveException("'SUPER_ADMIN' 그룹의 계정으로는 변경할 수 없습니다.");
+
 		memberRepository.save(memberDomainMapper.updateEntity(param, member));
 
 		return member.getNo();
