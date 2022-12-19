@@ -3,7 +3,7 @@ create table if not exists tb_member_role (
     role_no bigint not null,
     created_date_time datetime(6) default current_timestamp,
     updated_date_time datetime(6) default current_timestamp,
-    state integer default 0,
+    state integer default 1,
     primary key (member_no, role_no),
     unique (member_no),
     unique (role_no)

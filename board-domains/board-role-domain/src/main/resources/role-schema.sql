@@ -5,7 +5,7 @@ create table if not exists tb_role (
     role_access_url_pattern varchar(60) not null,
     created_date_time datetime(6) default current_timestamp,
     updated_date_time datetime(6) default current_timestamp,
-    state integer default 0,
+    state integer default 1,
     primary key (role_no),
     unique (role_name)
 );

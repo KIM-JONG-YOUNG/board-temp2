@@ -8,7 +8,7 @@ create table if not exists tb_member (
     member_group varchar(255) not null,
     created_date_time datetime(6) default current_timestamp,
     updated_date_time datetime(6) default current_timestamp,
-    state integer default 0,
+    state integer default 1,
     primary key (member_no),
     unique (member_username)
 );

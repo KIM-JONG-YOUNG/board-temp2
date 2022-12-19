@@ -88,13 +88,14 @@ public class MemberEntity extends BaseEntity {
 	}
 
 	@Builder
-	public MemberEntity(String username, String password, String name, Gender gender, String email) {
+	public MemberEntity(String username, String password, String name, Gender gender, String email, MemberGroup group) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.gender = gender;
 		this.email = email;
+		this.group = group;
 	}
 	
 }
