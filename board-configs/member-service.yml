@@ -16,8 +16,9 @@ spring:
     init:
       mode: always
       schema-locations:
-      - classpath:schema-member.sql
-      - classpath:data-member.sql
+      - classpath:member-schema.sql
+      data-locations:
+      - classpath:member-data.sql
 
 eureka:
   instance:
