@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import edu.jong.board.common.BoardConstants.TableNames;
 import edu.jong.board.common.CodeEnum.Gender;
+import edu.jong.board.common.CodeEnum.MemberGroup;
 import edu.jong.board.domain.converter.AbstractAttributeConverter;
 import edu.jong.board.domain.entity.BaseEntity;
 import lombok.AccessLevel;
@@ -63,12 +64,26 @@ public class MemberEntity extends BaseEntity {
 			length = 60,
 			nullable = false)
 	private String email;
-
+	
+	@Setter
+	@Convert(converter = MemberGroupAttributeConverter.class)
+	@Column(name = "member_group",
+			nullable = false)
+	private MemberGroup group;
+	
 	@Converter
 	public static class GenderAttributeConverter extends AbstractAttributeConverter<Gender, Character> {
 
 		public GenderAttributeConverter() {
 			super(Gender.class, false);
+		}
+	}
+
+	@Converter
+	public static class MemberGroupAttributeConverter extends AbstractAttributeConverter<MemberGroup, String> {
+		
+		public MemberGroupAttributeConverter() {
+			super(MemberGroup.class, false);
 		}
 	}
 

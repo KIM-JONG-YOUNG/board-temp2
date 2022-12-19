@@ -1,6 +1,7 @@
 spring:
   sql:
     init:
+#      mode: never
       mode: always
       schema-locations:
       - classpath:schema-member.sql
@@ -14,6 +15,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MariaDB103Dialect
     hibernate:
+#      ddl-auto: create-drop
       ddl-auto: validate
     show-sql: true
     properties:

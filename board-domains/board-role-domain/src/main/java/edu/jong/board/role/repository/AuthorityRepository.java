@@ -1,9 +1,0 @@
-package edu.jong.board.role.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import edu.jong.board.role.entity.AuthorityEntity;
-
-public interface AuthorityRepository extends JpaRepository<AuthorityEntity, Long>{
-
-}
