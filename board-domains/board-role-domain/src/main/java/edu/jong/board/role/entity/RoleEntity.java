@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import edu.jong.board.common.BoardConstants.TableNames;
 import edu.jong.board.common.CodeEnum.Method;
 import edu.jong.board.domain.converter.AbstractAttributeConverter;
+import edu.jong.board.domain.entity.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,7 +25,7 @@ import lombok.ToString;
 @Entity
 @Table(name = TableNames.TB_ROLE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class RoleEntity {
+public class RoleEntity extends BaseEntity {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "role_no",

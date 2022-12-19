@@ -6,9 +6,9 @@ create table if not exists tb_member (
     member_gender char(1) not null,
     member_email varchar(60) not null,
     member_group varchar(255) not null,
-    created_date_time datetime(6),
-    updated_date_time datetime(6),
-    state integer,
+    created_date_time datetime(6) default current_timestamp,
+    updated_date_time datetime(6) default current_timestamp,
+    state integer default 0,
     primary key (member_no),
     unique (member_username)
 );
