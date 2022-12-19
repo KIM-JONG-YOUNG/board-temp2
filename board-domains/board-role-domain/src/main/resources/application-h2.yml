@@ -4,7 +4,9 @@ spring:
 #      mode: never
       mode: always
       schema-locations:
-      - classpath:schema-role.sql
+      - classpath:role-schema.sql
+      data-locations:
+      - classpath:role-data.sql
   datasource:
     hikari:
       driver-class-name: org.h2.Driver
