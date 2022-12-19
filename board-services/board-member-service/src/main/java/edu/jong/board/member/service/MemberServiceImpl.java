@@ -61,6 +61,9 @@ public class MemberServiceImpl implements MemberService {
 		
 		Order orderBy = (cond.getOrderBy() == OrderBy.ASC) ? Order.ASC : Order.DESC;
 
+		if (cond.getSortBy() == null) 
+			return new OrderSpecifier<>(orderBy, TB_MEMBER.no);
+
 		switch (cond.getSortBy()) {
 		case NO:
 			return new OrderSpecifier<>(orderBy, TB_MEMBER.no);

@@ -23,8 +23,8 @@ public final class QueryDslUtils {
 
 	public static BooleanExpression betweenIfPresent(DateTimePath<LocalDateTime> path, LocalDate from, LocalDate to) {
 		return betweenIfPresent(path, 
-				LocalDateTime.of(from, LocalTime.of(0, 0, 0)), 
-				LocalDateTime.of(to, LocalTime.of(23, 59, 59)));
+				(from == null) ? null : LocalDateTime.of(from, LocalTime.of(0, 0, 0)), 
+				(to == null) ? null : LocalDateTime.of(to, LocalTime.of(23, 59, 59)));
 	}
 	public static BooleanExpression betweenIfPresent(DateTimePath<LocalDateTime> path, LocalDateTime from, LocalDateTime to) {
 

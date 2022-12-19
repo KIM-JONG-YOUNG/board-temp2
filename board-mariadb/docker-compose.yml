@@ -15,6 +15,20 @@ services:
       - ./conf:/etc/mysql/conf.d
       - ./member_db:/var/lib/mysql
 
+  role_db:
+    image: mariadb:latest
+    hostname: role_db
+    container_name: role_db
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=board
+    ports:
+      - 3307:3306
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./role_db:/var/lib/mysql
+
 networks:
   default:
     name: board_mariadb_net

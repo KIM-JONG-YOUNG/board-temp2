@@ -34,7 +34,9 @@ public class ErrorMessageHandler extends ResponseEntityExceptionHandler {
 			status = HttpStatus.GONE;
 		} else {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
+			e.printStackTrace();
 		}
+		
 		
 		return ResponseEntity.status(status)
 				.body(builder.build());
